@@ -1,0 +1,14 @@
+echo "* text=auto" > .gitattributes
+echo "*.js  text eol=lf" >> .gitattributes
+echo "*.jsx text eol=lf" >> .gitattributes
+echo "*.ts  text eol=lf" >> .gitattributes
+echo "*.tsx text eol=lf" >> .gitattributes
+echo "*.css  text eol=lf" >> .gitattributes
+echo "*.scss text eol=lf" >> .gitattributes
+echo "*.json text eol=lf" >> .gitattributes
+echo "*.md   text eol=lf" >> .gitattributes
+echo "*.yml  text eol=lf" >> .gitattributes
+echo "*.yaml text eol=lf" >> .gitattributes
+echo "*.html text eol=lf" >> .gitattributes
+echo "*.txt  text eol=lf" >> .gitattributes
+echo "*.xml  text eol=lf" >> .gitattributes
