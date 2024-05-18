@@ -71,47 +71,50 @@ const CrudApprentices = () => {
 
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Documento</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Ficha</th>
-                        <th>Fec Nacimiento</th>
-                        <th>Genero</th>
-                        <th>Correo</th>
-                        <th>Telefono</th>
-                        <th>Tot Memorandos</th>
-                        <th>Tot Inasistencias</th>
-                        <th>Patrocinio</th>
-                        <th>Centro Convivencia</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {apprenticeList.map((apprentice) => (
-                        <tr key={apprentice.Id_Aprendiz}>
-                            <td>{apprentice.Id_Aprendiz}</td>
-                            <td>{apprentice.Nom_Aprendiz}</td>
-                            <td>{apprentice.Ape_Aprendiz}</td>
-                            <td>{apprentice.Id_Ficha}</td>
-                            <td>{apprentice.Fec_Nacimiento}</td>
-                            <td>{apprentice.Gen_Aprendiz}</td>
-                            <td>{apprentice.Cor_Aprendiz}</td>
-                            <td>{apprentice.Tel_Aprendiz}</td>
-                            <td>{apprentice.Tot_Memorandos}</td>
-                            <td>{apprentice.Tot_Inasistencias}</td>
-                            <td>{apprentice.Patrocinio}</td>
-                            <td>{apprentice.CentroConvivencia}</td>
-                            <td>
-                                <button onClick={() => getApprentice(apprentice.Id_Aprendiz)}>Editar</button>
-                                <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)}>Borrar</button>
-                            </td>
+            <div className='table-responsive'>
+                <table className='table mt-3 table-hover table-secondary table-bordered border-success text-center small'>
+                    <caption>Aprendices encontrados!</caption>
+                    <thead className='table-success'>
+                        <tr>
+                            <th>Documento</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Ficha</th>
+                            <th>Fec Nacimiento</th>
+                            <th>Genero</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Tot Memorandos</th>
+                            <th>Tot Inasistencias</th>
+                            <th>Patrocinio</th>
+                            <th>Centro Convivencia</th>
+                            <th>Acciones</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {apprenticeList.map((apprentice) => (
+                            <tr key={apprentice.Id_Aprendiz}>
+                                <td>{apprentice.Id_Aprendiz}</td>
+                                <td>{apprentice.Nom_Aprendiz}</td>
+                                <td>{apprentice.Ape_Aprendiz}</td>
+                                <td>{apprentice.Id_Ficha}</td>
+                                <td>{apprentice.Fec_Nacimiento}</td>
+                                <td>{apprentice.Gen_Aprendiz}</td>
+                                <td>{apprentice.Cor_Aprendiz}</td>
+                                <td>{apprentice.Tel_Aprendiz}</td>
+                                <td>{apprentice.Tot_Memorandos}</td>
+                                <td>{apprentice.Tot_Inasistencias}</td>
+                                <td>{apprentice.Patrocinio}</td>
+                                <td>{apprentice.CentroConvivencia}</td>
+                                <td>
+                                    <button onClick={() => getApprentice(apprentice.Id_Aprendiz)} className='btn btn-outline-success'>Editar</button>
+                                    <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)} className='btn btn-outline-danger m-1'>Borrar</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <hr/>
             <FormApprentices buttonForm={buttonForm} apprentice={apprentice} URI={URI} updateTextButton={updateTextButton}/>
             <hr/>

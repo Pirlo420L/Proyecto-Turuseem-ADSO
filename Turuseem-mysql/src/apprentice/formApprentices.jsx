@@ -81,51 +81,68 @@ const FormApprentices = ({ buttonForm, apprentice, URI, updateTextButton}) => {
     }, [apprentice])
     return (
         <>
-            <form id="apprenticeForm" action="" onSubmit={sendForm}>
-                <label htmlFor="document">Documento: </label>  {/*En caso de error canbio el tipo de dato del input documento*/}
-                <input type="text" id="document" value={Id_Aprendiz} onChange={(e) => setId_Aprendiz(e.target.value)}/>
-                <br />
-                <label htmlFor="name">Nombres: </label>
-                <input type="text" id="name" value={Nom_Aprendiz} onChange={(e) => setNom_Aprendiz(e.target.value)}/>
-                <br />
-                <label htmlFor="lastName">Apellidos: </label>
-                <input type="text" id="lastName" value={Ape_Aprendiz} onChange={(e) => setApe_Aprendiz(e.target.value)}/>
-                <br />
+            <form id="apprenticeForm" action="" onSubmit={sendForm} className="container border border-success p-4 d-flex flex-column align-items-center">
+                <h1 className="mb-3 text-success">Registrar Aprendices</h1>
+                <label htmlFor="document" >Documento: </label>  {/*En caso de error canbio el tipo de dato del input documento*/}
+                <div className="col-6">
+                    <input type="text" id="document" value={Id_Aprendiz} onChange={(e) => setId_Aprendiz(e.target.value)} className="form-control "/>
+                </div>
+                <div className=" d-flex justify-content-center col-6">
+                    <div className="mt-4">
+                        <label htmlFor="name">Nombres: </label>
+                    </div>
+                    <div className="col- mt-3">
+                        <input type="text" id="name" value={Nom_Aprendiz} onChange={(e) => setNom_Aprendiz(e.target.value)} className="form-control col-5"/>
+                    </div>
+                    <div className="mt-4">
+                        <label htmlFor="lastName">Apellidos: </label>
+                    </div>
+                    <div className="col- mt-3">
+                        <input type="text" id="lastName" value={Ape_Aprendiz} onChange={(e) => setApe_Aprendiz(e.target.value)}className="form-control col-5"/>
+                    </div>
+                </div>
                 <label htmlFor="token">Ficha: </label>
-                <input type="text" id="token" value={Id_Ficha} onChange={(e) => setId_Ficha(e.target.value)}/>
-                <br />
+                <div className="col-6">
+                    <input type="text" id="token" value={Id_Ficha} onChange={(e) => setId_Ficha(e.target.value)}className="form-control col-5"/>
+                </div>
                 <label htmlFor="birthDate">Fec Nacimiento: </label>
-                <input type="date" id="birthDate" value={Fec_Nacimiento} onChange={(e) => setFec_Nacimiento(e.target.value)}/>
-                <br/>
+                <div className="col-6">
+                    <input type="date" id="birthDate" value={Fec_Nacimiento} onChange={(e) => setFec_Nacimiento(e.target.value)} className="form-control col-5"/>
+                </div>
                 <label htmlFor="gender">Genero: </label>
-                <select name="" id="gender" value={Gen_Aprendiz} onChange={(e) => setGen_Aprendiz(e.target.value)}>
-                    <option value="">Seleccione el genero</option>
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                    <option value="O">Otro</option>
-                </select>
-                <br/>
+                <div className="col-6">
+                    <select name="" id="gender" value={Gen_Aprendiz} onChange={(e) => setGen_Aprendiz(e.target.value)} className="form-select col-5">
+                        <option value="">Seleccione el genero</option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                        <option value="O">Otro</option>
+                    </select>
+                </div>
                 <label htmlFor="email">Correo: </label>
-                <input type="text" id="email" value={Cor_Aprendiz} onChange={(e) => setCor_Aprendiz(e.target.value)}/>
-                <br />
+                <div className="col-6">
+                    <input type="text" id="email" value={Cor_Aprendiz} onChange={(e) => setCor_Aprendiz(e.target.value)}className="form-control col-5"/>
+                </div>
                 <label htmlFor="phone">Telefono: </label>
-                <input type="text" id="phone" value={Tel_Aprendiz} onChange={(e) => setTel_Aprendiz(e.target.value)}/>
-                <br/>
+                <div className="col-6">
+                    <input type="text" id="phone" value={Tel_Aprendiz} onChange={(e) => setTel_Aprendiz(e.target.value)} className="form-control col-5"/>
+                </div>
                 <label htmlFor="sponsorship">Patrocinio: </label>
-                <select name="" id="sponsorship" value={Patrocinio} onChange={(e) => setPatrocinio(e.target.value)}>
-                    <option value="">Seleccione...</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>
-                </select>
-                <br/>
+                <div className="col-6">
+                    <select name="" id="sponsorship" value={Patrocinio} onChange={(e) => setPatrocinio(e.target.value)} className="form-select col-5">
+                        <option value="">Seleccione...</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
                 <label htmlFor="coexistenceCenter">Centro Convivencia: </label>
-                <select name="" id="coexistenceCenter" value={CentroConvivencia} onChange={(e) => setCentroConvivencia(e.target.value)}>
-                    <option value="">Seleccione...</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>
-                </select>
-                <br />
-                <input type="submit" id="button" value={buttonForm} className="btn btn-danger"/>
+                <div className="col-6">
+                    <select name="" id="coexistenceCenter" value={CentroConvivencia} onChange={(e) => setCentroConvivencia(e.target.value)} className="form-select col-5">
+                        <option value="">Seleccione...</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <input type="submit" id="button" value={buttonForm} className="btn btn-danger col-2"/>
             </form>
         </>
     )
