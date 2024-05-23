@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { MdDeleteOutline} from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const FormQueryApprentices = ({ URI, getApprentice, deleteApprentice, buttonForm}) => {
     const [ apprenticeQuery, setApprenticeQuery ] = useState([])
@@ -25,15 +26,17 @@ const FormQueryApprentices = ({ URI, getApprentice, deleteApprentice, buttonForm
 
     return (
         <>
-            <form action="" id="queryForm">
-                <label htmlFor="documentQuery">Documento: </label>
-                <input type="number" id="documentQuery" value={Id_Aprendiz} onChange={(e) => { sendFormQuery(e.target.value);
+            <form action="" id="queryForm" className="containerPequeño border border-success rounded-3 d-flex flex-column align-items-center mb-5 mt-5">
+                {/* <label htmlFor="documentQuery">Documento: </label> */}
+                <div className="col-9">
+                    <input type="number" id="documentQuery" placeholder="Buscar por documento" className="mb-5 mt-5 form-control" value={Id_Aprendiz} onChange={(e) => { sendFormQuery(e.target.value);
                     setId_Aprendiz(e.target.value)
                 }}/>
+                </div>
             </form>
             {/*  */}
-                {apprenticeQuery.length > 0 ? <table>
-                    <thead>
+                {apprenticeQuery.length > 0 ? <table className="table mt-3 table-hover table-secondary table-bordered border-success text-center small fst-italic">
+                    <thead className="table-success">
                         <tr>
                             <th>Documento</th>
                             <th>Nombres</th>
@@ -66,8 +69,8 @@ const FormQueryApprentices = ({ URI, getApprentice, deleteApprentice, buttonForm
                                 <td>{apprentice.Patrocinio}</td>
                                 <td>{apprentice.CentroConvivencia}</td>
                                 <td>
-                                    <button onClick={() => getApprentice(apprentice.Id_Aprendiz)}>Editar</button>
-                                    <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)}>Borrar</button>
+                                    <button onClick={() => getApprentice(apprentice.Id_Aprendiz)} className="btn btn-outline-success"><FaRegEdit/></button>
+                                    <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
                                 </td>
                         </tr>
                         ))}
