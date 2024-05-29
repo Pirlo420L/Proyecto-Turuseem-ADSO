@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { MdDeleteOutline} from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import FormMemorandum from "./formMemorandum.jsx"
 
-const URI = 'http://localhost:8000/memorando'
+const URI = 'http://localhost:8000/memorando/'
 
 const CrudMemorandum = () => {
     const [memorandumList, setMemorandumList] = useState([])
-    const [buttonForm, setButtonForm] = useState('')
+    const [buttonForm, setButtonForm] = useState('Enviar')
 
     const [memorandum, setMemorandum] = useState({
         Id_Memorando: '',
@@ -19,7 +20,7 @@ const CrudMemorandum = () => {
 
     useEffect(()=> {
         getAllMemorandum()
-    }, [memorandumLis])
+    }, [memorandumList])
 
     const getAllMemorandum = async () => {
         const respuesta = await axios.get(URI)
@@ -29,6 +30,7 @@ const CrudMemorandum = () => {
 
     const getMemorandum = async (Id_Memorando) => {
         setButtonForm('Actualizar')
+        console.log(Id_Memorando);
         const respuesta = await axios.get(URI + Id_Memorando)
 
         setMemorandum({
@@ -93,9 +95,8 @@ const CrudMemorandum = () => {
                     </tbody>
                 </table>
             </div>
-        <div>
-    </div>
-        
+            <hr/>
+            <FormMemorandum buttonForm={buttonForm} memorandum={memorandum} URI={URI} updateTextButton={updateTextButton}/>
         </>
     )
 }

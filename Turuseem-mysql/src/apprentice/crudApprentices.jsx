@@ -128,12 +128,6 @@ const CrudApprentices = () => {
                     </tbody>
                 </table>
             </div>
-            <div>
-
-      {/* <IconButton text={buttonForm} icon={FaRegEdit}  className='btn btn-outline-primary'/> */}
-    </div>
-
-
             <hr/>
             <FormApprentices buttonForm={buttonForm} apprentice={apprentice} URI={URI} updateTextButton={updateTextButton}/>
             <hr/>
