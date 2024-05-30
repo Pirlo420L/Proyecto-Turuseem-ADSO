@@ -8,6 +8,6 @@ router.get('/:Id_Memorando', getMemorandum)
 router.post('/', createMemorandum)
 router.put('/:Id_Memorando', updateMemorandum)
 router.delete('/:Id_Memorando', deleteMemorandum)
-router.get('/memorando/:Id_Memorando', getQueryMemorandum)
+router.get('/codigo/:Id_Memorando', getQueryMemorandum)
 
 export default router

@@ -1,4 +1,5 @@
 import MemorandumModel from "../models/memorandumModel.js";
+import { Sequelize } from "sequelize";
 
 export const getAllMemorandum = async (req, res) => {
     try {

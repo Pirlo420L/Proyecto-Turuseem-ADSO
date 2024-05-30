@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { MdDeleteOutline} from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import FormMemorandum from "./formMemorandum.jsx"
+import FormQueryMemorandum from "./formQueryMemorandum.jsx";
 
 const URI = 'http://localhost:8000/memorando/'
 
@@ -42,7 +43,7 @@ const CrudMemorandum = () => {
         setButtonForm(text)
     }
 
-    const deleteMemmorandum = (Id_Memorando) => {
+    const deleteMemorandum = (Id_Memorando) => {
         Swal.fire({
             title: "¿Estas seguro?",
             text: "No podras revertir esto!",
@@ -88,7 +89,7 @@ const CrudMemorandum = () => {
                                 <td>{memorandum.Id_Inasistencia}</td>
                                 <td>
                                     <button onClick={() => getMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-success'><FaRegEdit/></button>
-                                    <button onClick={() => deleteMemmorandum(memorandum.Id_Memorando)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
+                                    <button onClick={() => deleteMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
                                 </td>
                             </tr>
                         ))}
@@ -97,6 +98,8 @@ const CrudMemorandum = () => {
             </div>
             <hr/>
             <FormMemorandum buttonForm={buttonForm} memorandum={memorandum} URI={URI} updateTextButton={updateTextButton}/>
+            <hr/>
+            <FormQueryMemorandum URI={URI} getMemorandum={getMemorandum} deleteMemorandum={deleteMemorandum} buttonForm={buttonForm}/>
         </>
     )
 }
