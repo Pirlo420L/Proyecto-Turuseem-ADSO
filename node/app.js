@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import cors from 'cors';
+// import expressSession from 'express-session';
 
 import db from './database/db.js';
 import apprenticeRoutes from './routes/ApprenticeRoutes.js'
@@ -10,6 +13,7 @@ const app = express();
 
 app.use(cors())
 app.use(express.json())
+// app.use(expressSession)
 app.use('/aprendiz', apprenticeRoutes)
 app.use('/memorando', memorandumRoutes)
 app.use('/api/user', userRouter)
@@ -20,10 +24,6 @@ try {
 } catch (error) {
     console.log(`Error de conexion a la bd ${error}`);
 }
-
-// app.get('/', (req, res) => {
-//     res.send('Holaaaaaaa')
-// })
 
 app.listen(8000, () => {
     console.log('Server running on port 8000');

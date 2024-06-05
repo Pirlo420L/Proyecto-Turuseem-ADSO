@@ -1,10 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { MdDeleteOutline} from "react-icons/md";
-import { FaRegEdit } from "react-icons/fa";
 import FormMemorandum from "./formMemorandum.jsx"
 import FormQueryMemorandum from "./formQueryMemorandum.jsx";
+
+
+// Icons
+import { MdDeleteOutline} from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
+import { BsSendArrowUp } from "react-icons/bs";
+import { MdOutlinePreview } from "react-icons/md";
 
 const URI = 'http://localhost:8000/memorando/'
 
@@ -69,7 +74,7 @@ const CrudMemorandum = () => {
     return(
         <>
             <div className='table-responsive'>
-                <table className='table mt-3 table-hover table-secondary table-bordered border-success text-center small fst-italic'>
+                <table className='table mt-3 table-hover table-secondary table-bordered border-success text-center small fst-italic p-1'>
                     <caption>Memorandos encontrados!</caption>
                     <thead className='table-success'>
                         <tr>
@@ -90,6 +95,8 @@ const CrudMemorandum = () => {
                                 <td>
                                     <button onClick={() => getMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-success'><FaRegEdit/></button>
                                     <button onClick={() => deleteMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
+                                    <button className="btn btn-outline-primary"><BsSendArrowUp /></button>
+                                    <button className="btn btn-outline-secondary m-1"><MdOutlinePreview />Vista Previa</button>
                                 </td>
                             </tr>
                         ))}

@@ -2,7 +2,7 @@ import db from '../database/db.js'
 import { DataTypes } from 'sequelize'
 
 const ApprenticeModel = db.define('aprendiz', {
-    Id_Aprendiz: { type: DataTypes.INTEGER},
+    Id_Aprendiz: { type: DataTypes.INTEGER, primaryKey: true },
     Nom_Aprendiz: { type: DataTypes.STRING},
     Ape_Aprendiz: { type: DataTypes.STRING},
     Id_Ficha: { type: DataTypes.STRING},

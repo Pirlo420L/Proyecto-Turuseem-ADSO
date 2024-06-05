@@ -1,21 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-// import UserForm from './users/CreateAccount.jsx';
+import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'tailwindcss/colors.js'
 import { BrowserRouter } from 'react-router-dom';
-import 'bootstrap/dist/js/bootstrap.min.js'
-import LoginForm from './users/LoginUser.jsx';
-
-// import CrudApprentices from './apprentice/crudApprentices.jsx'
+import "D:/JORGE/PROYECTO-TURUSEEM-REACT-MYSQL/Turuseem-mysql/src/index.css"
+// import 'bootstrap/dist/js/bootstrap.min.js'
+// import Home from "./home/home.jsx";
+// import PDF from './memorandum/sendMemorandum.jsx'
+// import CreateAccount from './users/CreateAccount.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-
     <BrowserRouter>
-      <LoginForm/>
+      <App/>
     </BrowserRouter>
-      {/* <App /> */}
-
   </React.StrictMode>
 )

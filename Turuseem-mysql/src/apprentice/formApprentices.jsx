@@ -35,7 +35,6 @@ const FormApprentices = ({ buttonForm, apprentice, URI, updateTextButton}) => {
             })
             updateTextButton('Enviar')
             clearForm()
-
         } else if (buttonForm == 'Enviar') {
             console.log('Enviar...');
             axios.post(URI, {
