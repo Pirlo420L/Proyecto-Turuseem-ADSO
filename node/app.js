@@ -13,7 +13,6 @@ const app = express();
 
 app.use(cors())
 app.use(express.json())
-// app.use(expressSession)
 app.use('/aprendiz', apprenticeRoutes)
 app.use('/memorando', memorandumRoutes)
 app.use('/api/user', userRouter)

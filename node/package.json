@@ -19,6 +19,7 @@
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7",
+    "nodemailer": "^6.9.13",
     "pdfkit": "^0.15.0",
     "sequelize": "^6.37.3"
   }

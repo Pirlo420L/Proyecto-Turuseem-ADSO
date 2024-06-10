@@ -1,41 +1,41 @@
-import { Routes, Route, Link} from 'react-router-dom'
-import Home from './home/home.jsx'
-import CrudApprentices from './apprentice/crudApprentices.jsx'
-import CrudMemorandum from './memorandum/crudMemorandum.jsx'
+import { BrowserRouter, Routes, Route,} from 'react-router-dom'
+import AuthLayout from './layout/authLayout'
+import RutaProtegida from './layout/RutaProtegida'
 
+import LoginForm from './users/LoginUser'
+import UserForm from './users/CreateAccount'
+import OlvidePassword from './users/OlvidePassword'
+import ConfirmarCuenta from './users/ConfirmarCuenta'
+import CambiarPassword from './users/CambiarPassword'
 
+import { AuthProvider } from './context/authProvider'
 
+import AdministrarTurnos from './AdministrarTurnos'
+// import CrudApprentices from './apprentice/crudApprentices'
+// import CrudMemorandum from './memorandum/crudMemorandum'
 
 function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to="/" className="nav-link active" aria-current="page" href="#">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to= "/aprendiz" className="nav-link">Aprendiz</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/memorando" className="nav-link" tabIndex="-1">Memorandos</Link>
-              </li>
-            </ul>
-            <button className="btn btn-outline-success" type="submit">Cerrar Sesion</button>
-          </div>
-        </div>  
-      </nav>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/aprendiz' element={<CrudApprentices/>} />
-        <Route path='/memorando' element={<CrudMemorandum/>} />
-      </Routes>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path='/' element={<AuthLayout/>}>
+              <Route index element={<LoginForm/>}/>
+              <Route path='registrar' element= {<UserForm />}/>
+              <Route path='olvide-password' element= {<OlvidePassword />}/>
+              <Route path='olvide-password/:token' element= {<CambiarPassword />}/>
+              <Route path='confirmar/:id' element= {<ConfirmarCuenta />}/>
+            </Route>
+
+            <Route path='/admin' element={<RutaProtegida/>}>
+              <Route index element= {<AdministrarTurnos/>}/>
+              {/* <Route path='/aprendices' element={<CrudApprentices/>}/> */}
+              {/* <Route path='/memorandos' element={<CrudMemorandum/>}/> */}
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </>  
   )
 }
