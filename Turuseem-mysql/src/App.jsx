@@ -10,9 +10,10 @@ import CambiarPassword from './users/CambiarPassword'
 
 import { AuthProvider } from './context/authProvider'
 
-import AdministrarTurnos from './AdministrarTurnos'
-// import CrudApprentices from './apprentice/crudApprentices'
-// import CrudMemorandum from './memorandum/crudMemorandum'
+import Home from './home/home'
+// import AdministrarTurnos from './AdministrarTurnos'
+import CrudApprentices from './apprentice/crudApprentices'
+import CrudMemorandum from './memorandum/crudMemorandum'
 
 function App() {
   return (
@@ -29,9 +30,9 @@ function App() {
             </Route>
 
             <Route path='/admin' element={<RutaProtegida/>}>
-              <Route index element= {<AdministrarTurnos/>}/>
-              {/* <Route path='/aprendices' element={<CrudApprentices/>}/> */}
-              {/* <Route path='/memorandos' element={<CrudMemorandum/>}/> */}
+              <Route index element= {<Home/>}/>
+              <Route path='aprendices' element={<CrudApprentices/>}/>
+              <Route path='memorandos' element={<CrudMemorandum/>}/>
             </Route>
           </Routes>
         </AuthProvider>

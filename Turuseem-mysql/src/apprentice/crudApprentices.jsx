@@ -73,54 +73,46 @@ const CrudApprentices = () => {
         });
     }
 
-    // const IconButton = ({ text, icon: Icon }) => {
-    //     return (
-    //         <button style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-    //             {Icon && <Icon />} {text}
-    //         </button>
-    //     );
-    // };
 
     return (
         <>
-            <div className='table-responsive'>
-                <table className='table mt-3 table-hover table-secondary table-bordered border-success text-center small fst-italic'>
-                    <caption>Aprendices encontrados!</caption>
-                    <thead className='table-success'>
-                        <tr>
-                            <th>Documento</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Ficha</th>
-                            <th>Fec Nacimiento</th>
-                            <th>Genero</th>
-                            <th>Correo</th>
-                            <th>Telefono</th>
-                            <th>Tot Memorandos</th>
-                            <th>Tot Inasistencias</th>
-                            <th>Patrocinio</th>
-                            <th>Centro Convivencia</th>
-                            <th>Acciones</th>
+            <div className='overflow-x-auto'>
+                <table className='min-w-full bg-white text-center text-sm'>
+                    <thead className='text-white bg-green-700'>
+                        <tr className=''>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Documento</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Nombres</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Apellidos</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Ficha</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Fec Nacimiento</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Genero</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Correo</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Telefono</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Tot Memorandos</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Tot Inasistencias</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Patrocinio</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Centro Convivencia</th>
+                            <th className='py-2 px-4 border-2 border-b-gray-500'>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {apprenticeList.map((apprentice) => (
-                            <tr key={apprentice.Id_Aprendiz}>
-                                <td>{apprentice.Id_Aprendiz}</td>
-                                <td>{apprentice.Nom_Aprendiz}</td>
-                                <td>{apprentice.Ape_Aprendiz}</td>
-                                <td>{apprentice.Id_Ficha}</td>
-                                <td>{apprentice.Fec_Nacimiento}</td>
-                                <td>{apprentice.Gen_Aprendiz}</td>
-                                <td>{apprentice.Cor_Aprendiz}</td>
-                                <td>{apprentice.Tel_Aprendiz}</td>
-                                <td>{apprentice.Tot_Memorandos}</td>
-                                <td>{apprentice.Tot_Inasistencias}</td>
-                                <td>{apprentice.Patrocinio}</td>
-                                <td>{apprentice.CentroConvivencia}</td>
-                                <td>
-                                    <button onClick={() => getApprentice(apprentice.Id_Aprendiz)} className='btn btn-outline-success'><FaRegEdit/></button>
-                                    <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
+                            <tr key={apprentice.Id_Aprendiz} className='odd:bg-white even:bg-gray-100'>
+                                <td className='py-2 px-4 border-b'>{apprentice.Id_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Nom_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Ape_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Id_Ficha}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Fec_Nacimiento}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Gen_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Cor_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Tel_Aprendiz}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Tot_Memorandos}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Tot_Inasistencias}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.Patrocinio}</td>
+                                <td className='py-2 px-4 border-b'>{apprentice.CentroConvivencia}</td>
+                                <td className='py-2 px-4 border-b'>
+                                    <button onClick={() => getApprentice(apprentice.Id_Aprendiz)} className='text-blue-500 hover:text-blue-700 hover:border hover:border-blue-500 mr-3 p-1 rounded'><FaRegEdit/></button>
+                                    <button onClick={() => deleteApprentice(apprentice.Id_Aprendiz)} className='text-red-500 hover:text-red-700 hover:border hover:border-red-500 p-1 rounded'><MdDeleteOutline /></button>
                                 </td>
                             </tr>
                         ))}

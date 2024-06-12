@@ -6,7 +6,7 @@ import FormQueryMemorandum from "./formQueryMemorandum.jsx";
 
 
 // Icons
-import { MdDeleteOutline} from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { BsSendArrowUp } from "react-icons/bs";
 import { MdOutlinePreview } from "react-icons/md";
@@ -73,30 +73,29 @@ const CrudMemorandum = () => {
 
     return(
         <>
-            <div className='table-responsive'>
-                <table className='table mt-3 table-hover table-secondary table-bordered border-success text-center small fst-italic p-1'>
-                    <caption>Memorandos encontrados!</caption>
-                    <thead className='table-success'>
+            <div className='overflow-x-auto'>
+                <table className='min-w-full bg-white text-center text-sm'>
+                    <thead className='text-white bg-green-700'>
                         <tr>
-                            <th>Cod Memorando</th>
-                            <th>Fec Memorando</th>
-                            <th>Mot_Memorando</th>
-                            <th>Inasistencia</th>
-                            <th>Acciones</th>
+                            <th className="py-2 px-4 border-2 border-b-gray-500">Cod Memorando</th>
+                            <th className="py-2 px-4 border-2 border-b-gray-500">Fec Memorando</th>
+                            <th className="py-2 px-4 border-2 border-b-gray-500">Mot_Memorando</th>
+                            <th className="py-2 px-4 border-2 border-b-gray-500">Inasistencia</th>
+                            <th className="py-2 px-4 border-2 border-b-gray-500">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {memorandumList.map((memorandum) => (
-                            <tr key={memorandum.Id_Memorando}>
-                                <td>{memorandum.Id_Memorando}</td>
-                                <td>{memorandum.Fec_Memorando}</td>
-                                <td>{memorandum.Mot_Memorando}</td>
-                                <td>{memorandum.Id_Inasistencia}</td>
-                                <td>
-                                    <button onClick={() => getMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-success'><FaRegEdit/></button>
-                                    <button onClick={() => deleteMemorandum(memorandum.Id_Memorando)} className='btn btn-outline-danger m-1'><MdDeleteOutline /></button>
-                                    <button className="btn btn-outline-primary"><BsSendArrowUp /></button>
-                                    <button className="btn btn-outline-secondary m-1"><MdOutlinePreview />Vista Previa</button>
+                            <tr key={memorandum.Id_Memorando} className="odd:bg-white even:bg-gray-100">
+                                <td className='py-2 px-4 border-b'>{memorandum.Id_Memorando}</td>
+                                <td className='py-2 px-4 border-b'>{memorandum.Fec_Memorando}</td>
+                                <td className='py-2 px-4 border-b'>{memorandum.Mot_Memorando}</td>
+                                <td className='py-2 px-4 border-b'>{memorandum.Id_Inasistencia}</td>
+                                <td className='py-2 px-4 border-b'>
+                                    <button onClick={() => getMemorandum(memorandum.Id_Memorando)} className='text-blue-500 hover:text-blue-700 hover:border hover:border-blue-500 mr-3 p-1 rounded'><FaRegEdit/></button>
+                                    <button onClick={() => deleteMemorandum(memorandum.Id_Memorando)} className='text-red-500 hover:text-red-700 hover:border hover:border-red-500 p-1 rounded '><MdDeleteForever/></button>
+                                    <button className="text-indigo-500 hover:text-indigo-700 hover:border hover:border-indigo-500 p-1 rounded"><BsSendArrowUp /></button>
+                                    <button className="text-gray-500 hover:text-gray-700 hover:border hover:border-gray-500 p-1 rounded mx-2"><MdOutlinePreview />Ver</button>
                                 </td>
                             </tr>
                         ))}

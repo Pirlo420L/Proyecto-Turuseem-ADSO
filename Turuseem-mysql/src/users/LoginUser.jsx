@@ -16,7 +16,7 @@ const LoginForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        if ([Cor_User, password].includes(' ')) {
+        if ([Cor_User, password].includes('')) {
             setAlerta({
                 msg: "Todos los campos son obligatorios!",
                 error: true

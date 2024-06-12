@@ -8,6 +8,7 @@ import db from './database/db.js';
 import apprenticeRoutes from './routes/ApprenticeRoutes.js'
 import memorandumRoutes from './routes/memorandumRoutes.js'
 import userRouter from './routes/UserRoutes.js'
+import programaRoutes from './routes/programaRoutes.js'
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use('/aprendiz', apprenticeRoutes)
 app.use('/memorando', memorandumRoutes)
 app.use('/api/user', userRouter)
+app.use('/programa', programaRoutes)
 
 try {
     await db.authenticate()

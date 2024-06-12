@@ -1,5 +1,6 @@
 import express from 'express';
 import { createApprentice, deleteApprentice, getAllApprentice, getApprentice, updateApprentice, getQueryApprentice } from '../controller/apprenticeController.js';
+import checkAuth from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 

@@ -51,26 +51,33 @@ const FormMemorandum = ({ buttonForm, memorandum, URI, updateTextButton}) => {
 
     return (
         <>
-            <form id="memorandumForm" action="" onSubmit={sendForm} className="containerPequeño border border-success rounded-3 pt-3 d-flex flex-column align-items-center">
-                <h1 className="mb-3 text-success">Registrar Memorandos</h1>
-                {/* En caso de error canbio el tipo de dato del input documento */}
-                <div className="col-9">
-                    <input type="number" id="document" placeholder="Codigo Memorando" value={Id_Memorando} onChange={(e) => setId_Memorando(e.target.value)} className="form-control"/>
+        <div className="flex justify-center items-center min-h-screen bg-gray-100 content-center w-full">
+            <form id="memorandumForm" action="" onSubmit={sendForm} className="bg-white shadow-2xl rounded-2xl px-14 pt-6 pb-8 mb-4 max-w-3xl w-full mt-10">
+                <h1 className="font-bold text-green-600 text-3xl uppercase text-center my-5">Registrar Memorandos</h1>
+
+                <div className="mb-3">
+                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Codigo de Memorando</label>
+                    <input type="number" id="document" placeholder="Codigo Memorando" value={Id_Memorando} onChange={(e) => setId_Memorando(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
-                <div className="input-group flex-nowrap mt-3 d-flex justify-content-evenly">
-                    <span className="input-group-text" id="addon-wrapping">Fec Memorando</span>
-                    <div className="col-5">
-                        <input type="date" id="dateMemorandum" value={Fec_Memorando} onChange={(e) => setFec_Memorando(e.target.value)} className="form-control col-5"/>
-                    </div>
+
+                <div className="mb-3">
+                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Fecha Memorando</label>
+                    <input type="date" id="dateMemorandum" value={Fec_Memorando} onChange={(e) => setFec_Memorando(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
-                <div className="col-9 mt-3">
-                    <input type="textarea" id="motivoMemorando" placeholder="Motivo Memorando" value={Mot_Memorando} onChange={(e) => setMot_Memorando(e.target.value)} className="form-control col-5"/>
+
+                <div className="mb-3">
+                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Motivo Memorando</label>
+                    <input type="textarea" id="motivoMemorando" placeholder="Motivo del Memorando" value={Mot_Memorando} onChange={(e) => setMot_Memorando(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
-                <div className="col-9 mt-3">
-                    <input type="text" id="inasistencia" placeholder="Inasistencia" value={Id_Inasistencia} onChange={(e) => setId_Inasistencia(e.target.value)} className="form-control col-5"/>
+
+                <div className="mb-3">
+                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Inasistencia</label>
+                    <input type="text" id="inasistencia" placeholder="Codigo de Inasistencia" value={Id_Inasistencia} onChange={(e) => setId_Inasistencia(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
-                <input type="submit" id="button" value={buttonForm}  className="btn btn-outline-success col-2 m-3" aria-label="Enviar"/>
+
+                <input type="submit" id="button" value={buttonForm}  className="bg-green-600 w-full py-3 px-8 rounded-xl text-white mt-2 uppercase font-bold hover:cursor-pointer hover:bg-green-700 md:w-auto" aria-label="Enviar"/>
             </form>
+        </div>
         </>
     )
 }

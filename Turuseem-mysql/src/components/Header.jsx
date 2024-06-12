@@ -13,7 +13,9 @@ const Header = () => {
                     </h1>
                     <nav className="flex gap-5 flex-col lg:flex-row mt-5 lg:mt-0 items-center">
                         <Link to="/admin" className="text-white text-base uppercase font-bold">Inicio</Link>
-                        <Link to="/admin" className="text-white text-base uppercase font-bold">Perfil</Link>
+                        <Link to="perfil" className="text-white text-base uppercase font-bold">Perfil</Link>
+                        <Link to="aprendices" className="text-white text-base uppercase font-bold">Aprendices</Link>
+                        <Link to="memorandos" className="text-white text-base uppercase font-bold">Memorandos</Link>
                         <button type="button" onClick={cerrarSesion} className="text-white text-base uppercase font-bold">Cerrar Sesión</button>
                     </nav>
                 </div>
