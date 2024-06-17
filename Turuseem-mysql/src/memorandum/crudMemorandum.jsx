@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import FormMemorandum from "./formMemorandum.jsx"
 import FormQueryMemorandum from "./formQueryMemorandum.jsx";
+import MemorandumPDF from "./MemorandumPDF.jsx";
+import { PDFViewer } from "@react-pdf/renderer";
+import { useNavigate } from "react-router-dom";
 
 
 // Icons
@@ -16,6 +19,8 @@ const URI = 'http://localhost:8000/memorando/'
 const CrudMemorandum = () => {
     const [memorandumList, setMemorandumList] = useState([])
     const [buttonForm, setButtonForm] = useState('Enviar')
+    const [verPDF, setVerPDF] = useState(false)
+    const navigate = useNavigate()
 
     const [memorandum, setMemorandum] = useState({
         Id_Memorando: '',
@@ -70,6 +75,9 @@ const CrudMemorandum = () => {
             }
         });
     }
+    const mostrarPdf = () => {
+        navigate("/admin/PdfView")
+    }
 
     return(
         <>
@@ -95,7 +103,7 @@ const CrudMemorandum = () => {
                                     <button onClick={() => getMemorandum(memorandum.Id_Memorando)} className='text-blue-500 hover:text-blue-700 hover:border hover:border-blue-500 mr-3 p-1 rounded'><FaRegEdit/></button>
                                     <button onClick={() => deleteMemorandum(memorandum.Id_Memorando)} className='text-red-500 hover:text-red-700 hover:border hover:border-red-500 p-1 rounded '><MdDeleteForever/></button>
                                     <button className="text-indigo-500 hover:text-indigo-700 hover:border hover:border-indigo-500 p-1 rounded"><BsSendArrowUp /></button>
-                                    <button className="text-gray-500 hover:text-gray-700 hover:border hover:border-gray-500 p-1 rounded mx-2"><MdOutlinePreview />Ver</button>
+                                    <button className="text-gray-500 hover:text-gray-700 hover:border hover:border-gray-500 p-1 rounded mx-2" onClick={mostrarPdf}><MdOutlinePreview />Ver</button>
                                 </td>
                             </tr>
                         ))}

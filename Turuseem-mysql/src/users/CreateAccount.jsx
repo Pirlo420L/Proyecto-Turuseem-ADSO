@@ -33,6 +33,7 @@ const UserForm = () => {
             setAlerta({
                 msg: "Cuenta Creada Correctamente, Revisa tu correo!", error: false
             })
+            clearForm()
         } catch (error) {
             setAlerta({
                 msg: error.response.data.message, 
@@ -42,6 +43,13 @@ const UserForm = () => {
 
     };  
     const { msg } = alerta
+    const clearForm = () => {
+        setId_User("")
+        setNom_User("")
+        setCor_User("")
+        setPassword("")
+        setPasswordRepeat("")
+    }
 
     return (
         <>

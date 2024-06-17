@@ -12,7 +12,9 @@ const RutaProtegida = () => {
             <Header/>
                 {auth?.usuario?.Id_User || auth?.Id_User ? (
                     <main className="container mx-auto mt-10">
-                        <h1 className="text-stone-400 font-black text-4xl text-center mb-8">Bienvenidos a <span className="text-green-700">TURUSEEM</span></h1>
+                        <h1 className="text-stone-400 font-black text-4xl text-center mb-8">Bienvenidos a {" "}
+                            <span className="text-green-600">TURUSEEM</span>
+                        </h1>
                         <Outlet/>
                     </main>
                     ) : <Navigate to= '/'/> }

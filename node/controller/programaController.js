@@ -26,7 +26,7 @@ export const getPrograma = async (req, res) => {
 export const createPrograma = async (req, res) => {
     try {
         await ProgramaModel.create(req.body)
-        res.json({ "message": "¡Registro creado exitosamente!" })
+        res.json({ message: "¡Registro creado exitosamente!" })
 
     } catch (error) {
         res.json({ message: error.message })

@@ -61,22 +61,23 @@ const FormMemorandum = ({ buttonForm, memorandum, URI, updateTextButton}) => {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Fecha Memorando</label>
+                    <label htmlFor="dateMemorandum" className="text-gray-700 uppercase font-bold">Fecha Memorando</label>
                     <input type="date" id="dateMemorandum" value={Fec_Memorando} onChange={(e) => setFec_Memorando(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Motivo Memorando</label>
+                    <label htmlFor="motivoMemorando" className="text-gray-700 uppercase font-bold">Motivo Memorando</label>
                     <input type="textarea" id="motivoMemorando" placeholder="Motivo del Memorando" value={Mot_Memorando} onChange={(e) => setMot_Memorando(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="document" className="text-gray-700 uppercase font-bold">Inasistencia</label>
+                    <label htmlFor="inasistencia" className="text-gray-700 uppercase font-bold">Inasistencia</label>
                     <input type="text" id="inasistencia" placeholder="Codigo de Inasistencia" value={Id_Inasistencia} onChange={(e) => setId_Inasistencia(e.target.value)} className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
                 </div>
 
                 <input type="submit" id="button" value={buttonForm}  className="bg-green-600 w-full py-3 px-8 rounded-xl text-white mt-2 uppercase font-bold hover:cursor-pointer hover:bg-green-700 md:w-auto" aria-label="Enviar"/>
             </form>
+            <button><i className="fa/FaHospitalUser"></i></button>
         </div>
         </>
     )
