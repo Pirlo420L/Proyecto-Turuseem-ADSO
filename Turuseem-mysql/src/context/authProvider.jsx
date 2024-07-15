@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState, useEffect, createContext, useRef } from "react";
+import { useState, useEffect, createContext } from "react";
 import clieteAxios from "../config/axios";
 
 const AuthContext = createContext()
@@ -9,11 +9,8 @@ const AuthContext = createContext()
 const AuthProvider = ({children}) => {
     const [ cargando, setCargando ] = useState(true)
     const [ auth, setAuth ] = useState({})
-    // const effectRan = useRef(false)
 
     useEffect(() => {
-        // if (effectRan.current) return
-        // effectRan.current = true
         const autenticarUser = async () => {
             const token = localStorage.getItem('token')
             if (!token) {

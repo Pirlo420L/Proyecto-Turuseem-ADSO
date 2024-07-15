@@ -141,7 +141,7 @@ export const nuevoPassword = async(req, res) => {
         await usuario.save()
         res.json({ msg: "Contraseña Cambiada Correctamente!"})
 
-        console.log(usuario);
+        // console.log(usuario);
     } catch (error) {
         console.log(error);
     }

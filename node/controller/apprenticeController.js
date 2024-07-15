@@ -60,6 +60,24 @@ export const getQueryApprentice = async (req, res) => {
                 Id_Aprendiz: {
                     [Sequelize.Op.like]: `%${req.params.Id_Aprendiz}%`
                 }
+                // Nom_Aprendiz: {
+                //     [Sequelize.Op.like]: `%${req.params.Nom_Aprendiz}%`
+                // }
+            }
+        })
+        res.json(apprentice)
+    } catch (error) {
+        res.json({ message: error.message })
+    }
+}
+
+export const getQueryNom_Apprentice = async (req, res) => {
+    try {
+        const apprentice = await ApprenticeModel.findAll({
+            where: {
+                Nom_Aprendiz: {
+                    [Sequelize.Op.like]: `%${req.params.Nom_Aprendiz}%`
+                }
             }
         })
         res.json(apprentice)

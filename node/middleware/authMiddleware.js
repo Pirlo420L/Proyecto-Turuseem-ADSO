@@ -12,16 +12,17 @@ const checkAuth = async(req, res, next) => {
                 attributes: { exclude: ["password", "Confirmado", "token"]}
             })  
             return next()
-            // console.log(usuario, "Hola todo goooooooood");
         } catch (error) {
-            const e = new Error("Token no valido!")
-            return res.status(403).json({msg: e.message})
+            // const e = new Error("Token no valido!")
+            // return res.status(403).json({msg: e.message})
+            return res.status(403).json({ msg: 'Token no válido' });
         }
     }
 
     if (!token) {
-        const error = new Error("Token no valido o inexistente!")
-        res.status(403).json({msg: error.message})
+        // const error = new Error("Token no valido o inexistente!")
+        // res.status(403).json({msg: error.message})
+        return res.status(403).json({ msg: 'Token no válido o inexistente' });
     }
     next()
 }
