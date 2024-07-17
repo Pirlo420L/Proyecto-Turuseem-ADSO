@@ -16,6 +16,7 @@ const URI = "http://localhost:8000/aprendiz/";
 
 const CrudApprentices = () => {
   const [apprenticeList, setApprenticeList] = useState([]);
+  const [apprenticeQuery, setApprenticeQuery] = useState([]);
   // eslint-disable-next-line react/jsx-key
   const [buttonForm, setButtonForm] = useState("Enviar");
   const [stateAddApprentice, setStateAddApprentice] = useState(false);
@@ -23,8 +24,6 @@ const CrudApprentices = () => {
   const [modalDialog, setModalDialog] = useState(false);
   const [desde, setDesde] = useState(0);
   const [hasta, setHasta] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
-
 
   const [apprentice, setApprentice] = useState({
     Id_Aprendiz: "",
@@ -132,8 +131,8 @@ const CrudApprentices = () => {
           getApprentice={getApprentice}
           deleteApprentice={deleteApprentice}
           buttonForm={buttonForm}
-          setSearchQuery={setSearchQuery}
-          searchQuery={searchQuery}
+          apprenticeQuery={apprenticeQuery}
+          setApprenticeQuery={setApprenticeQuery}
         />
         <hr />
         <h2 className="font-semibold mb-4 text-lg text-gray-700 mt-3">
@@ -162,61 +161,64 @@ const CrudApprentices = () => {
             </tr>
           </thead>
           <tbody>
-            {apprenticeList.map((apprentice, indice) =>
-              indice >= desde && indice < hasta ? (
-                <tr
-                  key={apprentice.Id_Aprendiz}
-                  className="odd:bg-white even:bg-gray-100 select-none"
-                  onDoubleClick={() => [
-                    setOnDoubleClickAppretice(apprentice),
-                    setModalDialog(true),
-                  ]}
-                >
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Id_Aprendiz}
-                  </td>
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Nom_Aprendiz}
-                  </td>
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Ape_Aprendiz}
-                  </td>
-                  <td className="py-2 px-4 border-b">{apprentice.Id_Ficha}</td>
-                  {/* <td className='py-2 px-4 border-b'>{apprentice.Fec_Nacimiento}</td> */}
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Gen_Aprendiz}
-                  </td>
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Cor_Aprendiz}
-                  </td>
-                  <td className="py-2 px-4 border-b">
-                    {apprentice.Tel_Aprendiz}
-                  </td>
-                  {/* <td className='py-2 px-4 border-b'>{apprentice.Tot_Memorandos}</td> */}
-                  {/* <td className='py-2 px-4 border-b'>{apprentice.Tot_Inasistencias}</td> */}
-                  {/* <td className='py-2 px-4 border-b'>{apprentice.Patrocinio}</td> */}
-                  {/* <td className='py-2 px-4 border-b'>{apprentice.CentroConvivencia}</td> */}
-                  <td className="py-2 px-4 border-b">
-                    <button
-                      onClick={() => [
-                        getApprentice(apprentice.Id_Aprendiz),
-                        setStateAddApprentice(true),
-                      ]}
-                      className="text-blue-500 hover:text-blue-700 hover:border hover:border-blue-500 mr-3 p-1 rounded"
-                    >
-                      <FaRegEdit />
-                    </button>
-                    <button
-                      onClick={() => deleteApprentice(apprentice.Id_Aprendiz)}
-                      className="text-red-500 hover:text-red-700 hover:border hover:border-red-500 p-1 rounded"
-                    >
-                      <MdDeleteOutline />
-                    </button>
-                  </td>
-                </tr>
-              ) : (
-                ""
-              )
+            {(apprenticeQuery.length ? apprenticeQuery : apprenticeList).map(
+              (apprentice, indice) =>
+                indice >= desde && indice < hasta ? (
+                  <tr
+                    key={apprentice.Id_Aprendiz}
+                    className="odd:bg-white even:bg-gray-100 select-none"
+                    onDoubleClick={() => [
+                      setOnDoubleClickAppretice(apprentice),
+                      setModalDialog(true),
+                    ]}
+                  >
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Id_Aprendiz}
+                    </td>
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Nom_Aprendiz}
+                    </td>
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Ape_Aprendiz}
+                    </td>
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Id_Ficha}
+                    </td>
+                    {/* <td className='py-2 px-4 border-b'>{apprentice.Fec_Nacimiento}</td> */}
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Gen_Aprendiz}
+                    </td>
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Cor_Aprendiz}
+                    </td>
+                    <td className="py-2 px-4 border-b">
+                      {apprentice.Tel_Aprendiz}
+                    </td>
+                    {/* <td className='py-2 px-4 border-b'>{apprentice.Tot_Memorandos}</td> */}
+                    {/* <td className='py-2 px-4 border-b'>{apprentice.Tot_Inasistencias}</td> */}
+                    {/* <td className='py-2 px-4 border-b'>{apprentice.Patrocinio}</td> */}
+                    {/* <td className='py-2 px-4 border-b'>{apprentice.CentroConvivencia}</td> */}
+                    <td className="py-2 px-4 border-b">
+                      <button
+                        onClick={() => [
+                          getApprentice(apprentice.Id_Aprendiz),
+                          setStateAddApprentice(true),
+                        ]}
+                        className="text-blue-500 hover:text-blue-700 hover:border hover:border-blue-500 mr-3 p-1 rounded"
+                      >
+                        <FaRegEdit />
+                      </button>
+                      <button
+                        onClick={() => deleteApprentice(apprentice.Id_Aprendiz)}
+                        className="text-red-500 hover:text-red-700 hover:border hover:border-red-500 p-1 rounded"
+                      >
+                        <MdDeleteOutline />
+                      </button>
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )
             )}
           </tbody>
         </table>

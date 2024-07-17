@@ -15,7 +15,7 @@ const ModalDialog = ({
   deleteApprentice,
   onDoubleClickAppretice,
   setModalDialog,
-  setStateAddApprentice
+  setStateAddApprentice,
 }) => {
   const [open, setOpen] = useState(true);
 

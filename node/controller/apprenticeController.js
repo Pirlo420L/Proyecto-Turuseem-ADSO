@@ -85,3 +85,11 @@ export const getQueryNom_Apprentice = async (req, res) => {
         res.json({ message: error.message })
     }
 }
+
+export const importCSV = async(req, res) => {
+    try {
+        
+    } catch (error) {
+        res.json({ message: error.message })
+    }
+}
